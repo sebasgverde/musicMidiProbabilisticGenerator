@@ -21,9 +21,8 @@ A Markov chain is a model that predicts the next event in a sequence based only 
 ### N-gram Model
 An N-gram model is a probabilistic generative model which predicts the next sample in a sequence based on the previous n-1 samples. formaly
 
-P(xi|xi−(n−1),...,xi−1)
- 
-$$P(x_i | x_{i-(n-1)}, ..., x_{i-1})$$
+P(xi / xi−(n−1),...,xi−1)
+
 
 It achieves this creating the n-grams for the input data, which consists of all the possible n-tuple of contiguous elements.
 
