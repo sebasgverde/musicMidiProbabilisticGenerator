@@ -2,6 +2,13 @@
 #  Generation of music midi files with a probabilistic generative model
 Sebastián García Valencia
 
+# Requierements
+- jupyter==1.0.0
+- nltk==3.2.5
+- MIDIUtil==1.1.3
+- music21==4.1.0
+- pygame==1.9.3
+
 # Introduction
 
 A particular kind of machine learning model with the capacity to generate information is known as a generative model. There are many variations, but all they focus on learning patterns in a dataset to then produce data with a given seed.
@@ -119,11 +126,11 @@ To use the model as music generator, we will use a set of midi sequences. The st
 
 The procedure was to use these keys to download the songs in midi format. Then, I applied a series of cleaning and transformations to obtain an X and a Y array composed entirely by the integers representing the midi notes, focusing only in the sequence of notes and ignoring all the other features (time, tempo, etc.). The X corresponds to all the songs concatenated without the last element of each song, the Y to the same, but without the first note of each song, this can be used for an X -> Y type machine learning model.
 
-![Dataset workflow](datasetflow.png)
+![Dataset workflow](https://sebasgverde.github.io/musicMidiGenerator/datasetflow.png)
 
 For the case of this n-gram model, the data will be the x array of the validation dataset (around 2400 songs before transformations). To have more data, I applied a strategy of data augmentation, this usually done in computer vision, to generate a more significant dataset of images by rotating and translating the existent one. In this case, I transposed each song to have a version of it with each possible note as key note depending on how far is the song from central C and trying to spread the song the best possible through the midi range (0-127). The pseudo of this process is:
 
-![Dataset pseudocode](datasetPseudocode.png)
+![Dataset pseudocode](https://sebasgverde.github.io/musicMidiGenerator/datasetPseudocode.png)
 
 I provide the final dataset as a pickle.
 
@@ -336,13 +343,8 @@ print(generated_melody)
 
 
 # References
-
-https://golang.org/doc/codewalk/markov/
-
-https://en.wikipedia.org/wiki/Markov_chain
-
-https://en.wikipedia.org/wiki/N-gram#n-gram_models
-
-https://github.com/EelcovdW/mono-MusicXML-dataset
-
-https://musescore.org
+- [https://golang.org/doc/codewalk/markov/](https://golang.org/doc/codewalk/markov/)
+- [https://en.wikipedia.org/wiki/Markov_chain](https://en.wikipedia.org/wiki/Markov_chain)
+- [https://en.wikipedia.org/wiki/N-gram#n-gram_models](https://en.wikipedia.org/wiki/N-gram#n-gram_models)
+- [https://github.com/EelcovdW/mono-MusicXML-dataset](https://github.com/EelcovdW/mono-MusicXML-dataset)
+- [https://musescore.org](https://musescore.org)
