@@ -127,11 +127,11 @@ To use the model as music generator, we will use a set of midi sequences. The st
 
 The procedure was to use these keys to download the songs in midi format. Then, I applied a series of cleaning and transformations to obtain an X and a Y array composed entirely by the integers representing the midi notes, focusing only in the sequence of notes and ignoring all the other features (time, tempo, etc.). The X corresponds to all the songs concatenated without the last element of each song, the Y to the same, but without the first note of each song, this can be used for an X -> Y type machine learning model.
 
-![Dataset workflow](https://sebasgverde.github.io/musicMidiGenerator/datasetflow.png)
+![Dataset workflow](https://sebasgverde.github.io/musicMidiProbabilisticGenerator/datasetflow.png)
 
 For the case of this n-gram model, the data will be the x array of the validation dataset (around 2400 songs before transformations). To have more data, I applied a strategy of data augmentation, this usually done in computer vision, to generate a more significant dataset of images by rotating and translating the existent one. In this case, I transposed each song to have a version of it with each possible note as key note depending on how far is the song from central C and trying to spread the song the best possible through the midi range (0-127). The pseudo of this process is:
 
-![Dataset pseudocode](https://sebasgverde.github.io/musicMidiGenerator/datasetPseudocode.png)
+![Dataset pseudocode](https://sebasgverde.github.io/musicMidiProbabilisticGenerator/datasetPseudocode.png)
 
 I provide the final dataset as a pickle.
 
